@@ -8,9 +8,10 @@ citeproc-node (https://github.com/zotero/citeproc-node).
 Example Usage
 -------------
 	var fs = require('fs');
-	var citeprocnode = require("./lib/citeprocnode.js");
+	var citeproc = require("citeproc-js-node");
 	
-	var sys = new citeprocnode.simpleSys();
+	var sys = new citeproc.simpleSys();
+	//Wherever your locale and style files are. None are included with the package.
 	var enUS = fs.readFileSync('./csl-locales/locales-en-US.xml', 'utf8');
 	sys.addLocale('en-US', enUS);
 	var styleString = fs.readFileSync('./csl/ieee.csl', 'utf8');
