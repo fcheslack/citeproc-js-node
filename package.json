@@ -5,8 +5,9 @@
   "version": "v0.0.1",
   "repository": {
     "type": "git",
-    "url": "git://github.com/zotero/citeproc-js-node.git"
+    "url": "git://github.com/fcheslack/citeproc-js-node.git"
   },
+  "license": "MPL-1.1",
   "engines": {
     "node": ">=0.12"
   },
