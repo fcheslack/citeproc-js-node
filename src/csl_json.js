@@ -243,6 +243,9 @@ CSL_JSON.prototype.getNodesByName = function (myjson,name,nameattrval,ret) {
 
 CSL_JSON.prototype.nodeNameIs = function (myjson,name) {
     //print("nodeNameIs()");
+    if (typeof myjson == "undefined") {
+        return false;
+    }
     if (name == myjson.name) {
         return true;
     }
