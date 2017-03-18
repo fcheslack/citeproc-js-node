@@ -3,7 +3,7 @@
   "contributors": "fbennett",
   "name": "citeproc-js-node",
   "description": "wrapper around citeproc-js for use as a node library",
-  "version": "v0.0.2",
+  "version": "v0.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/fcheslack/citeproc-js-node.git"
