@@ -1,22 +1,22 @@
 {
   "author": "fcheslack",
+  "contributors": "fbennett",
   "name": "citeproc-js-node",
   "description": "wrapper around citeproc-js for use as a node library",
-  "version": "v0.0.1",
+  "version": "v0.0.2",
   "repository": {
     "type": "git",
-    "url": "git://github.com/zotero/citeproc-js-node.git"
+    "url": "https://github.com/fcheslack/citeproc-js-node.git"
   },
   "engines": {
     "node": ">=0.12"
   },
   "dependencies": {
-    "jsdom": ">=4.0",
     "underscore": ">=1.8",
     "npmlog": ">=1.2",
-    "bluebird": ">=2.9"
+    "bluebird": ">=2.9",
+    "citeproc": ">=2.0.0"
   },
   "devDependencies": {},
   "main": "./src/index.js"
 }
-

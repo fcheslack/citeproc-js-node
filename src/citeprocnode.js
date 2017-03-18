@@ -14,7 +14,6 @@ var fs = require('fs');
 var log = require('npmlog');
 var _ = require('underscore')._;
 var Promise = require('bluebird');
-let jsonWalker = require("./json_walker.js");
 
 //var sampleCites = require('../test/loadcitesnode.js');
 
@@ -32,30 +31,13 @@ exports.simpleSys.prototype.retrieveItem = function(itemID){
 };
 
 exports.simpleSys.prototype.addLocale = function(localeCode, localeString){
-    let localeObject;
-    try {
-        localeObject = JSON.parse(localeString);
-    } catch(e) {
-        let localeDoc = jsonWalker.MakeDoc(localeString);
-        localeObject = jsonWalker.JsonWalker.walkLocaleToObj(localeDoc);
-        localeDoc.defaultView.close();
-    }
-    this.locales[localeCode] = localeObject;
+    this.locales[localeCode] = localeString;
 };
 
 exports.simpleSys.prototype.newEngine = function(styleString, locale, forceLang){
     let sys = this;
-    let styleObject;
-    try {
-        styleObject = JSON.parse(styleString);
-    } catch(e) {
-        let styleDoc = jsonWalker.MakeDoc(styleString);
-        styleObject = jsonWalker.JsonWalker.walkStyleToObj(styleDoc).obj;
-        styleDoc.defaultView.close();
-    }
-    
-    let CSL = require("./citeproc.js").CSL;
-    let cslEngine = new CSL.Engine(sys, styleObject, locale);
+    let CSL = require("citeproc");
+    let cslEngine = new CSL.Engine(sys, styleString, locale);
     return cslEngine;
 };
 
@@ -150,7 +132,7 @@ var CiteprocEngine = function(reqItemsObj, cslXml, locale, localeManager, forceL
     this.localeManager = localeManager;
     
     
-    let CSL = require("./citeproc.js").CSL;
+    let CSL = require("citeproc");
     let cslEngine = new CSL.Engine(citeprocSys, cslXml, locale, forceLang);
     
     this.cslEngine = cslEngine;
